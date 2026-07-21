@@ -55,7 +55,7 @@ async def get_task(task_id: int):
 async def update_task(task_id: int, payload: TaskUpdate):
     task = tasks.get(task_id)
     if task is None:
-        raise HTTPException(status_code=404, description="task not found")
+        raise HTTPException(status_code=404, detail="task not found")
     updated = task.model_copy(
         update={k: v for k, v in payload.model_dump().items() if v is not None}
     )
