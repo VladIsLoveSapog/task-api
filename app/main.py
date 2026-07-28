@@ -80,3 +80,7 @@ async def delete_task(task_id: int):
         raise HTTPException(status_code=404, detail="task not found")
     del tasks[task_id]
     return None
+
+@app.get("/version")
+async def version() -> dict[str, str]:
+    return {"version": settings.app_version}
