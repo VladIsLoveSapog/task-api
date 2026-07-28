@@ -2,7 +2,7 @@ from httpx import ASGITransport, AsyncClient
 from conftest import client
 import pytest
 
-from main import app
+from app.main import app, tasks
 
 async def test_health(client):
     response = await client.get("/health")
